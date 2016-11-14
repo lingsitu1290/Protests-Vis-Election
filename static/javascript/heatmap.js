@@ -140,7 +140,7 @@ function getArrayOfDates(){
 /* Add Slider */ 
 function createSlider(sliderDate){
     $("#slider-1").slider({
-        min: 0,
+        min: 5,
         max: sliderDate.length-1,
         
         // On slider slide, changes the values 
@@ -157,8 +157,10 @@ function createSlider(sliderDate){
 
             // Separate into year, month, and day
             var year = date.substring(0,4)
-            var month = date.substring(5,7)
+            var month = date.substring(4,6)
             var day = date.substring(6,8)
+            console.log(date)
+            console.log(year, month, day)
 
             // Pass parts into JavaScript Date method and convert resulting date object to string
             var date = new Date(year + '-' + month + '-' + day).toUTCString();
@@ -179,7 +181,7 @@ function createSlider(sliderDate){
     // Set the initial value of the map to be the first date of sliderDate array
     $("#slider-1").slider({
         // Set initial value to 197 (index for July 16th) which is the day after the Turkish Coup
-        value: 60,
+        value: 10,
     })
 };
 
