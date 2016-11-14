@@ -157,7 +157,7 @@ function createSlider(sliderDate){
 
             // Separate into year, month, and day
             var year = date.substring(0,4)
-            var month = date.substring(5,6)
+            var month = date.substring(5,7)
             var day = date.substring(6,8)
 
             // Pass parts into JavaScript Date method and convert resulting date object to string
@@ -165,19 +165,21 @@ function createSlider(sliderDate){
             
             // Just want the date without the GMT by string splicing
             date=date.split(' ').slice(0, 4).join(' ')
+            console.log(date)
 
             // Show in html
             $('#slider-value').html(date);
             // Clears all the markers on the map
             clearMap(); 
             //calls changeMap everytime the slider is moved
+            console.log(ui.value);
             changeMap(sliderDate[ui.value]);
             }, 
     });
     // Set the initial value of the map to be the first date of sliderDate array
     $("#slider-1").slider({
         // Set initial value to 197 (index for July 16th) which is the day after the Turkish Coup
-        value: 197,
+        value: 60,
     })
 };
 
