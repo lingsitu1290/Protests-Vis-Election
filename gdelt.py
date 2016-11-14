@@ -78,7 +78,7 @@ def process_csv(file_name):
             # Want all EventBaseCode that starts with 14 listed for Protests 
             # and discard data with missing eventcodes and lat/logs
             # Extract all protest events 
-            if row[27][0:2] == "14" and row[26] != "" and row[53] != "" and row[54] != "":
+            if row[27][0:2] == "14" and row[26] != "" and row[53] != "" and row[54] != "" and "trump" in row[57].lower():
 
                 #Prints all needed info
                 # print "SQLDATE: ", row[1]
