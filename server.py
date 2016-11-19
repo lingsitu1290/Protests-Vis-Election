@@ -64,6 +64,9 @@ def getEvents():
 
     return jsonify(events)
 
+@app.route('/map')
+def map():
+    return render_template("map.html")
 
 @app.route('/analyze')
 def analyze():
@@ -187,7 +190,7 @@ if __name__ == "__main__":
 
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
-    # app.debug = True
+    app.debug = True
 
     connect_to_db(app, os.environ.get("DATABASE_URL"))
 
@@ -196,4 +199,3 @@ if __name__ == "__main__":
     DebugToolbarExtension(app)
     # needed for running on vagrant
     app.run(host="0.0.0.0")
-    app.run()
