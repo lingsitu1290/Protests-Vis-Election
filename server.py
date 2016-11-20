@@ -131,21 +131,27 @@ def eventCode(fullDate):
 #more informative function name events?
 def year_data():
     """JSON information about events based on what the fullDate is."""
-    
-    jan = Event.query.filter(Event.full_date.like('201601%'))
-    feb = Event.query.filter(Event.full_date.like('201602%'))
-    mar = Event.query.filter(Event.full_date.like('201603%'))
-    apr = Event.query.filter(Event.full_date.like('201604%'))
-    may = Event.query.filter(Event.full_date.like('201605%'))
-    june = Event.query.filter(Event.full_date.like('201606%'))
-    july = Event.query.filter(Event.full_date.like('201607%'))
-    aug = Event.query.filter(Event.full_date.like('201608%'))
+ 
+    #TODO: Generate this via loop?   
+    eight = Event.query.filter(Event.full_date.like('20161108'))
+    nine = Event.query.filter(Event.full_date.like('20161109'))
+    ten = Event.query.filter(Event.full_date.like('20161110'))
+    eleven = Event.query.filter(Event.full_date.like('20161111'))
+    twelve = Event.query.filter(Event.full_date.like('20161112'))
+    thirteen = Event.query.filter(Event.full_date.like('20161113'))
+    fourteen = Event.query.filter(Event.full_date.like('20161114'))
+    fifteen = Event.query.filter(Event.full_date.like('20161115'))
+    sixteen = Event.query.filter(Event.full_date.like('20161116'))
+    seventeen = Event.query.filter(Event.full_date.like('20161117'))
+    eighteen = Event.query.filter(Event.full_date.like('20161118'))
+    nineteen = Event.query.filter(Event.full_date.like('20161119'))
+    twenty = Event.query.filter(Event.full_date.like('20161120'))
 
     data_dict = {
-                "labels": ["January", "February", "March", "April", "May", "June", "July", "August"],
+                "labels": ["Nov 8", "Nov 9", "Nov 10", "Nov 11", "Nov 12", "Nov 13", "Nov 14", "Nov 15", "Nov 16", "Nov 17", "Nov 18", "Nov 19", "Nov 20"],
                 "datasets": [
                     {
-                        "label": "Protests in 2016",
+                        "label": "Trump Protests in November 2016",
                         "backgroundColor": [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -154,6 +160,11 @@ def year_data():
                             'rgba(153, 102, 255, 0.2)',
                             'rgba(255, 159, 64, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
                         ],
                         "borderColor": [
                             'rgba(255,99,132,1)',
@@ -163,9 +174,19 @@ def year_data():
                             'rgba(153, 102, 255, 1)',
                             'rgba(255, 159, 64, 1)',
                             'rgba(54, 162, 235, 0.2)',
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
                         ],
                         "borderWidth": 1,
-                        "data": [len(jan.all()), len(feb.all()), len(mar.all()), len(apr.all()), len(may.all()), len(june.all()), len(july.all()), len(aug.all())]
+                        "data": [len(eight.all()), len(nine.all()), len(ten.all()), 
+                                 len(eleven.all()), len(twelve.all()), len(thirteen.all()), 
+                                 len(fourteen.all()), len(fifteen.all()), len(sixteen.all()),
+                                 len(seventeen.all()), len(eighteen.all()), len(nineteen.all()),
+                                 len(twenty.all())
+                                ]
                     }
                 ]
             };
