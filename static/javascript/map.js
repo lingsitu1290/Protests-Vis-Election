@@ -5,9 +5,9 @@ var markersArray = [];
 var sliderDate = [];
 
 var map = new google.maps.Map(document.getElementById('map-canvas'),{
-    zoom: 2,
+    zoom: 4,
     minZoom: 2, 
-    center: {lat: 45, lng: 10},
+    center: {lat: 41.850033, lng: -87.6500523},
     // zoomControl: false,
     streetViewControl: false,
     scrollwheel: false
