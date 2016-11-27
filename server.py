@@ -12,6 +12,9 @@ from model import connect_to_db, db, Event
 
 app = Flask(__name__)
 
+# Getting Google maps API Key
+key = os.environ['GOOGLE_MAPS_API_KEY']
+
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
@@ -27,11 +30,12 @@ JS_TESTING_MODE = False
 def add_tests():
     g.jasmine_tests = JS_TESTING_MODE
 
+
 @app.route('/')
 def index():
     """Heatmap of protests."""
 
-    return render_template("heat.html")
+    return render_template("heat.html", key=key)
 
 #add info to route name, dynamically generate full_date
 #refactor into class /events/<int:full_date>.json'
@@ -66,7 +70,7 @@ def getEvents():
 
 @app.route('/map')
 def map():
-    return render_template("map.html")
+    return render_template("map.html", key=key)
 
 @app.route('/analyze')
 def analyze():
