@@ -16,7 +16,8 @@ app = Flask(__name__)
 key = os.environ['GOOGLE_MAPS_API_KEY']
 
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ABC"
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "ABC")
+
 
 # Normally, if you use an undefined variable in Jinja2, it fails
 # silently. This is horrible. Fix this so that, instead, it raises an
